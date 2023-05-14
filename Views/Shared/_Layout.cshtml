@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Konfigurator_ogrodzeń</title>
+    <title>@ViewData["Title"] - Konfigurator ogrodzeń</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Konfigurator_ogrodzeń.styles.css" asp-append-version="true" />
@@ -16,23 +16,34 @@
             <a href="#">Pomoc</a>
             <a href="#">Kontakt</a>
         </nav><br>
-
+    </header>
         <h1 class="container">Konfigurator ogrodzeń</h1>
-
-        <img src="~/dom1.jpg" alt="Przykładowy ogródek"/>
+    
+        <center>
+        <img src="~/dom1.jpg" alt="Przykładowy ogródek" />
+        </center>
+        <p>Wybierz wzór gotowego domu:</p>
+    <input type="file" id="gotowedomy" accept="image/*" onchange="handleImageUpload(event)">
+      
 
         <div class="options">
-            <label for="kolor">Kolor:</label>
+        <label for="typ">Typ ogrodzenia:</label>
+        <select id="typ">
+            <option value="brak">-</option>
+            <option value="pionowe">Pionowe</option>
+            <option value="poziome">Poziome</option>
+        </select><br />
+        <label for="kolor">Kolor:</label>
             <select id="kolor">
-                <option value="czarny">RAL 9005</option>
-                <option value="szary">RAL 7035</option>
-                <option value="biały">RAL 9003</option>
-                <option value="brazowy">RAL 8019</option>
-                <option value="dystrybutor1">Własny</option>
-            </select>
+            <option value="brak">-</option>
+                <option value="czarny">RAL 9005 Mat</option>
+                <option value="szary">Antracyt DB</option>
+                <option value="biały">RAL 6005 Mat</option>
+                <select>
             <br>
             <label for="rodzaj">Rodzaj ogrodzenia:</label>
             <select id="rodzaj">
+            <option value="brak">-</option>
                 <option value="kraty">Kraty</option>
                 <option value="siatka">Siatka</option>
                 <option value="panele">Panele</option>
@@ -44,6 +55,7 @@
             <br>
             <label for="material">Materiał:</label>
             <select id="material">
+            <option value="brak">-</option>
                 <option value="stal">Stal ocynkowana</option>
                 <option value="stal">Stal czarna</option>
                 <option value="aluminium">Aluminium</option>
@@ -51,9 +63,14 @@
                 <option value="dystrybutor3">Własny</option>
             </select><br><br>
            
+        </div> <br/>
 
-                <button type="submit">Wycena konfiguracji</button>
-        </div>
+    <ul class="flex-container">
+        <li class="flex-item" id="wycena" type="submit">Wyceń ogrodzenie</li>
+        <li class="flex-item" id="zapisz" type="submit">Zapisz konfiguracje</li>
+        <li class="flex-item" id="zobacz" type="submit">Zobacz specyfikację wzoru</li>
+       
+    </ul>
 
         <input type="file" accept="image/*" onchange="handleImageUpload(event)">
 
@@ -84,12 +101,9 @@
             @RenderBody()
         </main>
     </div>
+    
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - Konfigurator_ogrodzeń - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
+   
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

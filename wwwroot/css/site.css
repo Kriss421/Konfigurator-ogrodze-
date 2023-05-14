@@ -11,26 +11,53 @@ html {
 html {
   position: relative;
   min-height: 100%;
+  display:block;
 }
 
 body {
-    background-color: #f8f8f8;
+    background-color: #ffd80043;
     color: #424242;
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
     margin: 0 !important;
     max-width: 100%;
 }
+.flex-container {
+    opacity: 0.9;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
 
-.container {
+.flex-item {
+    background: forestgreen;
+    border-radius: 35px;
+    opacity: 0.8;
+    padding: 1px;
+    width: 250px;
+    height: 150px;
+    line-height: 150px;
+    color: black;
+    font-weight: bold;
+    font-size: 1em;
+    text-align: center;
+    border: 5px solid black ;
+}
+
+.container1 {
     width: 1000px;
     margin-left: auto;
     margin-right: auto;
     box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.1);
 }
 
-.dystrybutor1 {
-    color: #4b9e5a;
+.options {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80px;
 }
 
 img {
@@ -38,12 +65,12 @@ img {
     height: auto;
     width: auto;
     padding: 50px;
-    margin-left: auto;
+    
 }
 
 .title {
     text-align: center;
-    font-weight: bold;
+    font-weight: 300;
     font-size: 50px;
     color: black;
     padding-top: 40px;
@@ -59,6 +86,7 @@ nav {
     box-shadow: 7px 7px 5px #888888;
     text-shadow: 5px 5px 5px #888888;
 }
+
 
 
     /* styl dla linków nawigacyjnych */
@@ -80,7 +108,12 @@ nav a.active {
 
 h1 {
     text-align: center;
-    border-radius: 10px;
+    padding: 2rem;
+    border-radius: 35px;
+    background-color: forestgreen;
+    opacity: 0.8;
+    box-shadow: 7px 7px 5px #888888;
+    text-shadow: 5px 5px 5px #888888;
 }
 
 .footer {
