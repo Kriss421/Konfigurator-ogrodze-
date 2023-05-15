@@ -17,11 +17,12 @@
             <a href="#">Kontakt</a>
         </nav><br>
     </header>
-        <h1 class="container">Konfigurator ogrodzeń</h1>
-    
-        <center>
-        <img src="~/dom1.jpg" alt="Przykładowy ogródek" />
-        </center>
+    <center>
+        <div class="image-container">
+            <img src="~/dom1.jpg" alt="Przykładowy ogródek" />
+            <h1 class="image-text">Konfigurator ogrodzeń</h1>
+        </div>
+    </center>
         <p>Wybierz wzór gotowego domu:</p>
     <input type="file" id="gotowedomy" accept="image/*" onchange="handleImageUpload(event)">
       
@@ -71,10 +72,6 @@
         <li class="flex-item" id="zobacz" type="submit">Zobacz specyfikację wzoru</li>
        
     </ul>
-
-        <input type="file" accept="image/*" onchange="handleImageUpload(event)">
-
-        <canvas id="canvas"></canvas>
 
         <h2>Kontakt</h2>
         <form>

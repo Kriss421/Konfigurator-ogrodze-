@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formularz kontaktowy</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Konfigurator_ogrodzeń.styles.css" asp-append-version="true" />
+</head>
+
+<body>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('../Shared/ogrodzenie.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+        
+        h1 {
+            font-size: 32px;
+            text-align: center;
+            color: #fff;
+            margin-top: 50px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .tile {
+            flex-basis: calc(50% - 20px);
+            margin: 10px;
+            padding: 20px;
+            background-color: #f2f2f2;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        input[type="text"],
+        input[type="tel"],
+        input[type="file"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #f9f9f9;
+            border-radius: 3px;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: #666;
+        }
+        
+        textarea {
+            resize: none;
+            height: 120px;
+        }
+        
+        button[type="submit"],
+        button[type="button"] {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            color: #fff;
+            cursor: pointer;
+            background-color: #ff5a5f;
+            transition: background-color 0.3s ease-in-out;
+        }
+        
+        button[type="submit"]:hover {
+            background-color: #00a699;
+        }
+        
+        .submit-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+    <h1>Formularz kontaktowy</h1>
+    <div class="container">
+        <div class="tile">
+            <label for="imie">Imię:</label>
+            <input type="text" id="imie" name="imie" required>
+            <label for="nazwisko">Nazwisko:</label>
+            <input type="text" id="nazwisko" name="nazwisko" required>
+            <label for="telefon">Telefon:</label>
+            <input type="tel" id="telefon" name="telefon" required>
+            <label for="kod_pocztowy">Kod pocztowy:</label>
+            <input type="text" id="kod_pocztowy" name="kod_pocztowy" required>
+            <label for="plik">Załącz plik:</label>
+            <input type="file" id="plik" name="plik">
+        </div>
+    </div>
+    <div class="submit-container">
+        <button type="submit" id="submit-quote-button">Wyślij do wyceny</button>
+    </div>
+    <script>
+        document.getElementById('submit-quote-button').addEventListener('click', function() {
+            var imie = document.getElementById('imie').value;
+            var nazwisko = document.getElementById('nazwisko').value;
+            var telefon = document.getElementById('telefon').value;
+            var montaz = document.getElementById('montaz').value;
+            var kodPocztowy = document.getElementById('kod_pocztowy').value;
+            var plik = document.getElementById('plik').value;
+
+            if (imie === '' || nazwisko === '' || telefon === '' || montaz === '' || kodPocztowy === '' || plik === '') {
+                alert('Proszę wypełnić wszystkie pola formularza.');
+            } else {
+                // Tutaj możesz dodać kod do wysłania formularza lub inne działania
+                alert('Formularz został wysłany!');
+            }
+        });
+    </script>
+</body>
+
+</html>
