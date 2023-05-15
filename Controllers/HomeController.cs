@@ -1,7 +1,7 @@
 ﻿using Konfigurator_ogrodzeń.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-//test loginu
+
 namespace Konfigurator_ogrodzeń.Controllers
 {
     public class HomeController : Controller
