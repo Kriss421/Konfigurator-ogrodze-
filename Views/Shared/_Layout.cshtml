@@ -9,98 +9,11 @@
     <link rel="stylesheet" href="~/Konfigurator_ogrodzeń.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="#" class="active">Strona Główna</a>
-            <a href="#">Konfigurator</a>
-            <a href="#">Pomoc</a>
-            <a href="#">Kontakt</a>
-        </nav><br>
-    </header>
-    <center>
-        <div class="image-container">
-            <img src="~/dom1.jpg" alt="Przykładowy ogródek" />
-            <h1 class="image-text">Konfigurator ogrodzeń</h1>
-        </div>
-    </center>
-        <p>Wybierz wzór gotowego domu:</p>
-    <input type="file" id="gotowedomy" accept="image/*" onchange="handleImageUpload(event)">
-      
-
-        <div class="options">
-        <label for="typ">Typ ogrodzenia:</label>
-        <select id="typ">
-            <option value="brak">-</option>
-            <option value="pionowe">Pionowe</option>
-            <option value="poziome">Poziome</option>
-        </select><br />
-        <label for="kolor">Kolor:</label>
-            <select id="kolor">
-            <option value="brak">-</option>
-                <option value="czarny">RAL 9005 Mat</option>
-                <option value="szary">Antracyt DB</option>
-                <option value="biały">RAL 6005 Mat</option>
-                <select>
-            <br>
-            <label for="rodzaj">Rodzaj ogrodzenia:</label>
-            <select id="rodzaj">
-            <option value="brak">-</option>
-                <option value="kraty">Kraty</option>
-                <option value="siatka">Siatka</option>
-                <option value="panele">Panele</option>
-                <option value="profil1">Profil 30x30</option>
-                <option value="profil2">Profil 40x30</option>
-                <option value="profil3">Profil 10x30</option>
-                <option value="dystrybutor2">Własny</option>
-            </select>
-            <br>
-            <label for="material">Materiał:</label>
-            <select id="material">
-            <option value="brak">-</option>
-                <option value="stal">Stal ocynkowana</option>
-                <option value="stal">Stal czarna</option>
-                <option value="aluminium">Aluminium</option>
-                <option value="drewno">Drewno</option>
-                <option value="dystrybutor3">Własny</option>
-            </select><br><br>
-           
-        </div> <br/>
-
-    <ul class="flex-container">
-        <li class="flex-item" id="wycena" type="submit">Wyceń ogrodzenie</li>
-        <li class="flex-item" id="zapisz" type="submit">Zapisz konfiguracje</li>
-        <li class="flex-item" id="zobacz" type="submit">Zobacz specyfikację wzoru</li>
-       
-    </ul>
-
-        <h2>Kontakt</h2>
-        <form>
-            <label for="email">Twój adres e-mail:</label>
-            <input type="email" id="email" name="email"><br>
-
-            <label for="pytanie">Twoje pytanie:</label>
-            <textarea id="pytanie" name="pytanie"></textarea><br>
-
-            <button type="submit">Wyślij</button>
-        </form>
-
-        <hr>
-        <div class="text-success">
-        </div>
-        <div class="footer">
-
-            2023 &copy; Wszelkie prawa zastrzeżone.
-
-        </div>
-    </header>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-    
-
-   
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

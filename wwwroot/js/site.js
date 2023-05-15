@@ -1,4 +1,15 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿document.getElementById('submit-quote-button').addEventListener('click', function () {
+    var imie = document.getElementById('imie').value;
+    var nazwisko = document.getElementById('nazwisko').value;
+    var telefon = document.getElementById('telefon').value;
+    var montaz = document.getElementById('montaz').value;
+    var kodPocztowy = document.getElementById('kod_pocztowy').value;
+    var plik = document.getElementById('plik').value;
 
-// Write your JavaScript code.
+    if (imie === '' || nazwisko === '' || telefon === '' || montaz === '' || kodPocztowy === '' || plik === '') {
+        alert('Proszę wypełnić wszystkie pola formularza.');
+    } else {
+        // Tutaj możesz dodać kod do wysłania formularza lub inne działania
+        alert('Formularz został wysłany!');
+    }
+});

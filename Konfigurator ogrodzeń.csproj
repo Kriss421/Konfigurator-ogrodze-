@@ -7,4 +7,8 @@
     <RootNamespace>Konfigurator_ogrodzeń</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Nowy folder\" />
+  </ItemGroup>
+
 </Project>
