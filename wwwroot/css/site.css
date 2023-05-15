@@ -15,8 +15,7 @@ body {
 }
 
 nav {
-    background-color: forestgreen;
-    border-radius: 10px;
+    background-color: #f5f5f5;
 }
 
     nav a {
@@ -73,15 +72,31 @@ nav {
     display: flex;
     justify-content: center;
     margin-top: 20px;
-    background-color:forestgreen;
 }
 
 .flex-item {
     margin: 0 10px;
-    padding: 10px 20px;
-    cursor: pointer;
-    background-color: forestgreen;
 }
+
+    .flex-item button {
+        padding: 12px 24px;
+        background-color: #ccc;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.3s ease;
+        border: 2px solid transparent;
+    }
+
+        .flex-item button:hover {
+            background-color: #999;
+            border-color: #999;
+        }
 
 footer {
     background-color: #f5f5f5;
