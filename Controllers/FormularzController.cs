@@ -3,7 +3,7 @@
 namespace Konfigurator_ogrodzeń.Controllers
 {
 
-    public class KontaktController : Controller
+    public class FormularzController : Controller
     {
         public ActionResult FormularzKontaktowy()
         {
