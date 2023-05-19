@@ -1,113 +1,98 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Konfigurator ogrodzeń</title>
+    <title>Formularz kontaktowy</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/Konfigurator_ogrodzeń.styles.css" asp-append-version="true" />
-</head>
-<body>
     <style>
-        * {
-            box-sizing: border-box;
-        }
 
         body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: url('../Shared/ogrodzenie.jpg') no-repeat center center fixed;
-            background-size: cover;
+            background-color: peachpuff;
         }
 
         h1 {
-            font-size: 32px;
             text-align: center;
-            color: #fff;
-            margin-top: 50px;
         }
-
-        .container {
-            max-width: 800px;
+        .form-container {
+            max-width: 500px;
             margin: 0 auto;
             padding: 20px;
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-            display: flex;
-            flex-wrap: wrap;
+            background-color: #fff;
+            box-shadow: 0 5px 4px rgba(0, 0, 0, 0.1);
         }
 
-        .tile {
-            flex-basis: calc(50% - 20px);
-            margin: 10px;
-            padding: 20px;
-            background-color: #f2f2f2;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-            color: #666;
-            font-size: 14px;
-        }
-
-        input[type="text"],
-        input[type="tel"],
-        input[type="file"],
-        textarea {
-            width: 100%;
-            padding: 10px;
-            border: none;
-            background-color: #f9f9f9;
-            border-radius: 3px;
-            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            font-size: 16px;
-            color: #666;
-        }
-
-        textarea {
-            resize: none;
-            height: 120px;
-        }
-
-        button[type="submit"],
-        button[type="button"] {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 3px;
-            color: #fff;
-            cursor: pointer;
-            background-color: #ff5a5f;
-            transition: background-color 0.3s ease-in-out;
-        }
-
-            button[type="submit"]:hover {
-                background-color: #00a699;
+            .form-container label {
+                display: block;
+                margin-bottom: 5px;
             }
 
+            .form-container input[type="text"],
+            .form-container input[type="tel"],
+            .form-container input[type="file"] {
+                width: 100%;
+                padding: 5px;
+                margin-bottom: 10px;
+                transition: border-color 0.5s;
+            }
+
+                .form-container input[type="text"]:hover,
+                .form-container input[type="tel"]:hover,
+                .form-container input[type="file"]:hover {
+                    border-color: #4CAF50;
+                }
+
         .submit-container {
-            width: 100%;
-            display: flex;
-            justify-content: center;
+            text-align: center;
+            margin-top: 20px;
         }
+
+            .submit-container button {
+                padding: 10px 20px;
+                background-color: #4CAF50;
+                color: #fff;
+                border: none;
+                cursor: pointer;
+            }
+
+                .submit-container button:hover {
+                    background-color: #45a049;
+                }
     </style>
+</head>
+
+<body>
     <h1>Formularz kontaktowy</h1>
     <div class="container">
-        <div class="tile">
+        <div class="form-container">
             <label for="imie">Imię:</label>
             <input type="text" id="imie" name="imie" required>
             <label for="nazwisko">Nazwisko:</label>
             <input type="text" id="nazwisko" name="nazwisko" required>
+            <label for="email">E-mail:</label>
+            <input type="text" id="email" name="email" />
             <label for="telefon">Telefon:</label>
             <input type="tel" id="telefon" name="telefon" required>
             <label for="kod_pocztowy">Kod pocztowy:</label>
             <input type="text" id="kod_pocztowy" name="kod_pocztowy" required>
+            <label for="miasto">Miasto:</label>
+            <input type="text" id="miasto" name="miasto" required>
             <label for="plik">Załącz plik:</label>
-            <input type="file" id="plik" name="plik">
+            <input type="file" id="plik" name="plik" required>
+            <label for="plik">Chcę dostać kopię zgłoszenia na mejla</label>
+            <a>TAK</a>
+            <input type="checkbox" id="kopia" name="kopia" /><br />
+            <a>NIE</a>
+            <input type="checkbox" id="kopia" name="kopia" /><br /><br />
+            <label for="uwagi">Uwagi:</label>
+            <textarea id="uwagi" name="uwagi"></textarea><br>
         </div>
     </div>
     <div class="submit-container">
@@ -125,10 +110,10 @@
             if (imie === '' || nazwisko === '' || telefon === '' || montaz === '' || kodPocztowy === '' || plik === '') {
                 alert('Proszę wypełnić wszystkie pola formularza.');
             } else {
-                // Tutaj możesz dodać kod do wysłania formularza lub inne działania
                 alert('Formularz został wysłany!');
             }
         });
     </script>
-    </body>
+</body>
+
 </html>
