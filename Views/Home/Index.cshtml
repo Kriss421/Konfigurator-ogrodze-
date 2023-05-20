@@ -2,85 +2,136 @@
     ViewData["Title"] = "Home Page";
 }
 
-
 <div class="text-center">
-<header>
-    <nav>
-        <a href=@Url.Action("StronaPomoc", "Pomoc")>Pomoc</a>
-        <a href=@Url.Action("StronaKontakt", "Kontakt")>Kontakt</a>
-    </nav><br>
+    <header>
+        <nav>
+            <a href=@Url.Action("StronaPomoc", "Pomoc")>Pomoc</a>
+            <a href=@Url.Action("StronaKontakt", "Kontakt")>Kontakt</a>
+        </nav><br>
         <h1 class="display-4">Zaprojektuj swoje ogrodzenie razem z nami!</h1>
-</header>
-<center>
-    <div class="image-container">
-        <img src="~/dom1.jpg" alt="Przykładowy ogródek" /><br /><br />
-        <h1 class="image-text">Konfigurator ogrodzeń</h1><br /><br />
+    </header>
+    <center>
+        <div class="image-container">
+            <img src="~/dom1.jpg" alt="Przykładowy ogródek" class="img-thumbnail" /><br /><br />
+            <h1 class="image-text">Konfigurator ogrodzeń</h1><br /><br />
+        </div>
+    </center>
+    <p>Wybierz wzór gotowego domu:</p>
+
+    <select id="gotowy-dom" onchange="showSelectedImage()">
+        <option>Wybierz</option>"
+        <option value="../WidokDomu2.jpg">Wzór 1</option>
+        <option value="../WidokDomu3.jpg">Wzór 2</option>
+        <option value="../WidokDomu4.jpg">Wzór 3</option>
+    </select>
+    <div id="selected-image-container"></div><br /><br /><br />
+
+    <div class="options">
+        <label for="typ">Typ ogrodzenia:</label>
+        <select id="typ" onchange="showAdditionalOptions()">
+            <option value="brak">-</option>
+            <option value="pionowe">Pionowe</option>
+            <option value="poziome">Poziome</option>
+        </select>
+
+     <div id="additional-options-pionowe" style="display: none;">
+    <label for="pionowe-options">Dodatkowe opcje dla pionowych:</label>
+    <select id="pionowe-options">
+        <option value="../4.png">Agat</option>
+        <option value="../5.png">Opal</option>
+        <option value="../5.png">Kwarc</option>
+    </select>
+</div>
+
+<div id="additional-options-poziome" style="display: none;">
+    <label for="poziome-options">Dodatkowe opcje dla poziomych:</label>
+    <select id="poziome-options">
+        <option value="../1.png">Trawertyn</option>
+        <option value="../2.png">Beryl</option>
+        <option value="../3.png">Malachit 100/P-20</option>
+    </select>
+</div>
+
+        <script>
+            function showAdditionalOptions() {
+                var typSelect = document.getElementById("typ");
+                var additionalOptionsContainerPionowe = document.getElementById("additional-options-pionowe");
+                var additionalOptionsContainerPoziome = document.getElementById("additional-options-poziome");
+
+                if (typSelect.value === "pionowe") {
+                    document.getElementById("pionowe-options").selectedIndex = 0;
+                    additionalOptionsContainerPionowe.style.display = "block";
+                    additionalOptionsContainerPoziome.style.display = "none";
+                } else if (typSelect.value === "poziome") {
+                    document.getElementById("poziome-options").selectedIndex = 0;
+                    additionalOptionsContainerPionowe.style.display = "none";
+                    additionalOptionsContainerPoziome.style.display = "block";
+                } else {
+                    additionalOptionsContainerPionowe.style.display = "none";
+                    additionalOptionsContainerPoziome.style.display = "none";
+                }
+            }
+        </script>
+        <br />
+        <label for="kolor">Kolor:</label>
+        <select id="kolor">
+            <option value="brak">-</option>
+            <option value="czarny">RAL 9005 Mat</option>
+            <option value="szary">Antracyt DB</option>
+            <option value="biały">RAL 6005 Mat</option>
+        </select><br />
+        <label for="rodzaj">Rodzaj ogrodzenia:</label>
+        <select id="rodzaj">
+            <option value="brak">-</option>
+            <option value="kraty">Kraty</option>
+            <option value="siatka">Siatka</option>
+            <option value="panele">Panele</option>
+            <option value="profil1">Profil 30x30</option>
+            <option value="profil2">Profil 40x30</option>
+            <option value="profil3">Profil 10x30</option>
+            <option value="dystrybutor2">Własny</option>
+        </select><br />
+        <label for="groty">Groty:</label>
+        <select id="groty">
+            <option value="brak">-</option>
+            <option value="P1">P1</option>
+            <option value="P0">P0</option>
+            <option value="P5">P5</option>
+        </select><br /><br />
     </div>
-</center>
-<p>Wybierz wzór gotowego domu:</p>
-<input type="file" id="gotowedomy" accept="image/*" onchange="handleImageUpload(event)">
+    <br />
 
-
-<div class="options">
-    <label for="typ">Typ ogrodzenia:</label>
-    <select id="typ">
-        <option value="brak">-</option>
-        <option value="pionowe">Pionowe</option>
-        <option value="poziome">Poziome</option>
-    </select><br />
-    <label for="kolor">Kolor:</label>
-    <select id="kolor">
-        <option value="brak">-</option>
-        <option value="czarny">RAL 9005 Mat</option>
-        <option value="szary">Antracyt DB</option>
-        <option value="biały">RAL 6005 Mat</option>
-        <select>
-            <br>
-            <label for="rodzaj">Rodzaj ogrodzenia:</label>
-            <select id="rodzaj">
-                <option value="brak">-</option>
-                <option value="kraty">Kraty</option>
-                <option value="siatka">Siatka</option>
-                <option value="panele">Panele</option>
-                <option value="profil1">Profil 30x30</option>
-                <option value="profil2">Profil 40x30</option>
-                <option value="profil3">Profil 10x30</option>
-                <option value="dystrybutor2">Własny</option>
-            </select>
-            <br>
-            <label for="material">Materiał:</label>
-            <select id="material">
-                <option value="brak">-</option>
-                <option value="stal">Stal ocynkowana</option>
-                <option value="stal">Stal czarna</option>
-                <option value="aluminium">Aluminium</option>
-                <option value="drewno">Drewno</option>
-                <option value="dystrybutor3">Własny</option>
-            </select>
-            <br>
-            <br>
-
-</div>
-<br />
-
-<ul class="flex-container">
-    <li class="flex-item" id="wycena" type="submit">
+    <ul class="flex-container">
+        <li class="flex-item" id="wycena" type="submit">
             <a href="@Url.Action("FormularzKontaktowy", "Formularz")">Wyceń ogrodzenie</a>
-    </li>
-    <li class="flex-item" id="zapisz" type="submit">Zapisz konfiguracje</li>
-    <li class="flex-item" id="zobacz" type="submit">Zobacz specyfikację wzoru</li>
+        </li>
+        <li class="flex-item" id="zapisz" type="submit">Zapisz konfiguracje</li>
+        <li class="flex-item" id="zobacz" type="submit">Zobacz specyfikację wzoru</li>
+    </ul>
 
-</ul>
+    <hr>
+    <div class="text-success"></div>
+    <div class="footer">
+        2023 &copy; Wszelkie prawa zastrzeżone.
+    </div>
 
-<hr>
-<div class="text-success">
-</div>
-<div class="footer">
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
 
-    2023 &copy; Wszelkie prawa zastrzeżone.
+    <script>
+        function showSelectedImage() {
+            var selectElement = document.getElementById("gotowy-dom");
+            var selectedValue = selectElement.value;
+            var selectedImageContainer = document.getElementById("selected-image-container");
 
-</div>
+            selectedImageContainer.innerHTML = ""; // Usunięcie poprzednio wyświetlonego zdjęcia
 
-<script src="~/lib/jquery/dist/jquery.min.js"></script>
-<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="~/js/site.js" asp-append-version="true"></script>
+            var selectedImage = document.createElement("img");
+            selectedImage.src = "~/" + selectedValue;
+            selectedImage.alt = "Wybrany dom";
+            selectedImage.classList.add("img-thumbnail");
+
+            selectedImageContainer.appendChild(selectedImage);
+        }
+    </script>

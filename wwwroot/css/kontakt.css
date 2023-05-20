@@ -73,3 +73,7 @@ button[type="submit"] {
     button[type="submit"]:hover {
         background-color: #45a049;
     }
+    h2{
+        justify-content:center;
+        display:flex;
+    }
