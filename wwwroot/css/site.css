@@ -1,6 +1,5 @@
-/* Nowoczesny styl */
+
 body {
-    background-color: peachpuff;
     color: #333;
     font-family: Arial, sans-serif;
 }
@@ -25,7 +24,6 @@ a {
     color: #28a745;
 }
 
-/* Efekty zielonego koloru */
 nav {
     background-color: #28a745;
     padding: 2px;
