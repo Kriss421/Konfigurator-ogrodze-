@@ -56,7 +56,6 @@
         <div id="grot-options" style="display: none;">
             <label for="groty">Groty:</label>
             <select id="groty">
-                <option value="">-</option>
                 <option value="P1">P1</option>
                 <option value="P0">P0</option>
                 <option value="P5">P5</option>
@@ -135,5 +134,8 @@
 
             selectedImageContainer.src = "~/" + selectedValue;
             selectedImageContainer.alt = "Wybrany dom";
+            window.onload = function () {
+                showSelectedImage();
+            };
         }
     </script>
