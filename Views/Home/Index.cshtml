@@ -99,7 +99,6 @@
             }
         </script>
 
-        <br />
         <label for="kolor">Kolor:</label>
         <select id="kolor">
             <option value="brak">-</option>
@@ -132,15 +131,9 @@
         function showSelectedImage() {
             var selectElement = document.getElementById("gotowy-dom");
             var selectedValue = selectElement.value;
-            var selectedImageContainer = document.getElementById("selected-image-container");
+            var selectedImageContainer = document.querySelector(".image-container img");
 
-            selectedImageContainer.innerHTML = ""; // Usunięcie poprzednio wyświetlonego zdjęcia
-
-            var selectedImage = document.createElement("img");
-            selectedImage.src = "~/" + selectedValue;
-            selectedImage.alt = "Wybrany dom";
-            selectedImage.classList.add("img-thumbnail");
-
-            selectedImageContainer.appendChild(selectedImage);
+            selectedImageContainer.src = "~/" + selectedValue;
+            selectedImageContainer.alt = "Wybrany dom";
         }
     </script>
