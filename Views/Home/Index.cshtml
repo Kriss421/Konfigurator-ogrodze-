@@ -34,44 +34,71 @@
             <option value="poziome">Poziome</option>
         </select>
 
-     <div id="additional-options-pionowe" style="display: none;">
-    <label for="pionowe-options">Dodatkowe opcje dla pionowych:</label>
-    <select id="pionowe-options">
-        <option value="../4.png">Agat</option>
-        <option value="../5.png">Opal</option>
-        <option value="../5.png">Kwarc</option>
-    </select>
-</div>
+        <div id="additional-options-pionowe" style="display: none;">
+            <label for="pionowe-options">Dodatkowe opcje dla pionowych:</label>
+            <select id="pionowe-options" onchange="showGrotOptions()">
+                <option value="">Wybierz</option>
+                <option value="../4.png">Agat</option>
+                <option value="../5.png">Opal</option>
+                <option value="../6.png">Kwarc</option>
+            </select>
+        </div>
 
-<div id="additional-options-poziome" style="display: none;">
-    <label for="poziome-options">Dodatkowe opcje dla poziomych:</label>
-    <select id="poziome-options">
-        <option value="../1.png">Trawertyn</option>
-        <option value="../2.png">Beryl</option>
-        <option value="../3.png">Malachit 100/P-20</option>
-    </select>
-</div>
+        <div id="additional-options-poziome" style="display: none;">
+            <label for="poziome-options">Dodatkowe opcje dla poziomych:</label>
+            <select id="poziome-options">
+                <option value="../1.png">Trawertyn</option>
+                <option value="../2.png">Beryl</option>
+                <option value="../3.png">Malachit 100/P-20</option>
+            </select>
+        </div>
+
+        <div id="grot-options" style="display: none;">
+            <label for="groty">Groty:</label>
+            <select id="groty">
+                <option value="">-</option>
+                <option value="P1">P1</option>
+                <option value="P0">P0</option>
+                <option value="P5">P5</option>
+            </select>
+        </div>
 
         <script>
             function showAdditionalOptions() {
                 var typSelect = document.getElementById("typ");
                 var additionalOptionsContainerPionowe = document.getElementById("additional-options-pionowe");
                 var additionalOptionsContainerPoziome = document.getElementById("additional-options-poziome");
+                var grotOptionsContainer = document.getElementById("grot-options");
 
                 if (typSelect.value === "pionowe") {
                     document.getElementById("pionowe-options").selectedIndex = 0;
                     additionalOptionsContainerPionowe.style.display = "block";
                     additionalOptionsContainerPoziome.style.display = "none";
+                    grotOptionsContainer.style.display = "none";
                 } else if (typSelect.value === "poziome") {
                     document.getElementById("poziome-options").selectedIndex = 0;
                     additionalOptionsContainerPionowe.style.display = "none";
                     additionalOptionsContainerPoziome.style.display = "block";
+                    grotOptionsContainer.style.display = "none";
                 } else {
                     additionalOptionsContainerPionowe.style.display = "none";
                     additionalOptionsContainerPoziome.style.display = "none";
+                    grotOptionsContainer.style.display = "none";
+                }
+            }
+
+            function showGrotOptions() {
+                var pionoweOptionsSelect = document.getElementById("pionowe-options");
+                var grotOptionsContainer = document.getElementById("grot-options");
+
+                if (pionoweOptionsSelect.value === "../4.png") {
+                    grotOptionsContainer.style.display = "block";
+                } else {
+                    grotOptionsContainer.style.display = "none";
                 }
             }
         </script>
+
         <br />
         <label for="kolor">Kolor:</label>
         <select id="kolor">
@@ -80,24 +107,6 @@
             <option value="szary">Antracyt DB</option>
             <option value="biały">RAL 6005 Mat</option>
         </select><br />
-        <label for="rodzaj">Rodzaj ogrodzenia:</label>
-        <select id="rodzaj">
-            <option value="brak">-</option>
-            <option value="kraty">Kraty</option>
-            <option value="siatka">Siatka</option>
-            <option value="panele">Panele</option>
-            <option value="profil1">Profil 30x30</option>
-            <option value="profil2">Profil 40x30</option>
-            <option value="profil3">Profil 10x30</option>
-            <option value="dystrybutor2">Własny</option>
-        </select><br />
-        <label for="groty">Groty:</label>
-        <select id="groty">
-            <option value="brak">-</option>
-            <option value="P1">P1</option>
-            <option value="P0">P0</option>
-            <option value="P5">P5</option>
-        </select><br /><br />
     </div>
     <br />
 
