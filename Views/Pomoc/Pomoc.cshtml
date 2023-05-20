@@ -1,10 +1,17 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>Pomoc - Konfigurator ogrodzeń</title>
+    <title>Pomoc</title>
     <link rel="stylesheet" type="text/css" href="../wwwroot/css/pomoc.css">
 </head>
 <body>
+    <nav>
+        <a href="#" class="active">Strona Główna</a>
+        <a href="#">Konfigurator</a>
+        <a href=@Url.Action("StronaPomoc", "Pomoc")>Pomoc</a>
+        <a href=@Url.Action("StronaKontakt", "Kontakt")>Kontakt</a>
+    </nav>
+    <br>
     <header>
         <h1>Witamy na stronie pomocy konfiguratora ogrodzeń dla domków jednorodzinnych</h1>
     </header>

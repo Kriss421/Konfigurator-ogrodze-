@@ -18,4 +18,8 @@
     <None Remove="Views\Nowy folder\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Views\Shared\Untitled-1.html" />
+  </ItemGroup>
+
 </Project>

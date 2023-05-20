@@ -1,10 +1,17 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>Kontakt - Konfigurator ogrodzeń</title>
+    <title>Kontakt</title>
     <link rel="stylesheet" type="text/css" href="~/css/kontakt.css">
 </head>
 <body>
+    <nav>
+        <a href="#" class="active">Strona Główna</a>
+        <a href="#">Konfigurator</a>
+        <a href=@Url.Action("StronaPomoc", "Pomoc")>Pomoc</a>
+        <a href=@Url.Action("StronaKontakt", "Kontakt")>Kontakt</a>
+    </nav>
+    <br>
     <header>
         <h1>Kontakt z obsługą klienta</h1>
     </header>
