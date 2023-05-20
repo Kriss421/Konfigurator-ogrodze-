@@ -8,14 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Formularz\Nowy folder\**" />
     <Compile Remove="Views\Nowy folder\**" />
+    <Content Remove="Views\Formularz\Nowy folder\**" />
     <Content Remove="Views\Nowy folder\**" />
+    <EmbeddedResource Remove="Views\Formularz\Nowy folder\**" />
     <EmbeddedResource Remove="Views\Nowy folder\**" />
+    <None Remove="Views\Formularz\Nowy folder\**" />
     <None Remove="Views\Nowy folder\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Views\Formularz\Nowy folder\" />
   </ItemGroup>
 
 </Project>
