@@ -14,4 +14,8 @@
     <None Remove="Views\Nowy folder\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Formularz\Nowy folder\" />
+  </ItemGroup>
+
 </Project>
