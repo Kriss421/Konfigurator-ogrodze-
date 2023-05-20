@@ -23,6 +23,11 @@ namespace Konfigurator_ogrodzeń.Controllers
             return View();
         }
 
+        public ActionResult StronaHome()
+        {
+            return View("Index");
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
