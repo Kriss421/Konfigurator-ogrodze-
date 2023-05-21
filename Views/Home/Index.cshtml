@@ -2,7 +2,7 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
+<div class="text-center"/>
     <header>
         <nav>
             <a href=@Url.Action("StronaPomoc", "Pomoc")>Pomoc</a>
@@ -38,18 +38,18 @@
             <label for="pionowe-options">Dodatkowe opcje dla pionowych:</label>
             <select id="pionowe-options" onchange="showGrotOptions()">
                 <option value="">Wybierz</option>
-                <option value="../4.png">Agat</option>
-                <option value="../5.png">Opal</option>
-                <option value="../6.png">Kwarc</option>
+                <option value="Agat">Agat</option>
+                <option value="Opal">Opal</option>
+                <option value="Kwarc">Kwarc</option>
             </select>
         </div>
 
         <div id="additional-options-poziome" style="display: none;">
             <label for="poziome-options">Dodatkowe opcje dla poziomych:</label>
             <select id="poziome-options">
-                <option value="../1.png">Trawertyn</option>
-                <option value="../2.png">Beryl</option>
-                <option value="../3.png">Malachit 100/P-20</option>
+                <option value="Trawertyn">Trawertyn</option>
+                <option value="Beryl">Beryl</option>
+                <option value="Malachit">Malachit 100/P-20</option>
             </select>
         </div>
 
@@ -114,7 +114,10 @@
             <a href="@Url.Action("FormularzKontaktowy", "Formularz")">Wyceń ogrodzenie</a>
         </li>
         <li class="flex-item" id="zapisz" type="submit">Zapisz konfiguracje</li>
-        <li class="flex-item" id="zobacz" type="submit">Zobacz specyfikację wzoru</li>
+        <li class="flex-item" id="zobacz" type="submit">
+            <button onclick="redirectToSpecification()">Zobacz specyfikację wzoru</button>
+        </li>
+
     </ul>
 
     <hr>
@@ -135,5 +138,41 @@
 
             selectedImageContainer.src = "~/" + selectedValue;
             selectedImageContainer.alt = "Wybrany dom";
+        }
+
+        function redirectToSpecification() {
+            var pionoweOptionsSelect = document.getElementById("pionowe-options");
+            var poziomeOptionsSelect = document.getElementById("poziome-options");
+            var selectedOption = "";
+
+            if (pionoweOptionsSelect.style.display !== "none") {
+                selectedOption = pionoweOptionsSelect.value;
+            } else if (poziomeOptionsSelect.style.display !== "none") {
+                selectedOption = poziomeOptionsSelect.value;
+            }
+
+            switch (selectedOption) {
+                case "Agat":
+                    window.location.href = "/Specyfikacja/SpecyfikacjaAgat";
+                    break;
+                case "Opal":
+                    window.location.href = "/Specyfikacja/SpecyfikacjaOpal";
+                    break;
+                case "Kwarc":
+                    window.location.href = "/Specyfikacja/SpecyfikacjaKwarc";
+                    break;
+                case "Trawertyn":
+                    window.location.href = "/Specyfikacja/SpecyfikacjaTrawertyn";
+                    break;
+                case "Beryl":
+                    window.location.href = "/Specyfikacja/SpecyfikacjaBeryl";
+                    break;
+                case "Malachit":
+                    window.location.href = "/Specyfikacja/SpecyfikacjaMalachit";
+                    break;
+                default:
+                    // Handle default case or display an error message
+                    break;
+            }
         }
     </script>
