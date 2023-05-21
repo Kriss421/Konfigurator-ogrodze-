@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@{
+    ViewData["Title"] = "Formularz";
+}
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -71,8 +74,13 @@
 
 <body>
     <h1>Formularz kontaktowy</h1>
+
     <div class="container">
         <div class="form-container">
+            <p>Wybrane opcje:</p>
+            <p>Kolor: @ViewBag.Kolor</p>
+            <p>Opcje poziome: @ViewBag.OpcjePoziome</p>
+            <p>Opcje pionowe: @ViewBag.OpcjePionowe</p>
             <label for="imie">Imię:</label>
             <input type="text" id="imie" name="imie" required>
             <label for="nazwisko">Nazwisko:</label>
