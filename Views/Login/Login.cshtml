@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Panel Administracyjny - Logowanie";
+    // Aga - strona w przeglądarce to /Login/Login
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form method="post">
+    <div>
+        <label for="username">Użytkownik:</label>
+        <input type="text" id="username" name="username" />
+    </div>
+    <div>
+        <label for="password">Hasło:</label>
+        <input type="password" id="password" name="password" />
+    </div>
+    <button type="submit">Zaloguj</button>
+</form>

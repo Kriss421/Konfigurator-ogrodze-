@@ -22,6 +22,12 @@ namespace Konfigurator_ogrodzeń
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                // Aga - do logowania
+                endpoints.MapControllerRoute(
+                    name: "login",
+                    pattern: "Login/{action=Login}/{id?}",
+                    defaults: new { controller = "Login" });
             });
         }
     }
