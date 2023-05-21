@@ -110,7 +110,7 @@
 
     <ul class="flex-container">
         <li class="flex-item" id="wycena" type="submit">
-            <a href="@Url.Action("FormularzKontaktowy", "Formularz")">Wyceń ogrodzenie</a>
+        <button onclick="redirectToFormularz()">Wyceń ogrodzenie</button>
         </li>
         <li class="flex-item" id="zapisz" type="submit">Zapisz konfiguracje</li>
         <li class="flex-item" id="zobacz" type="submit">
@@ -140,6 +140,12 @@
             window.onload = function () {
                 showSelectedImage();
             };
+        }
+
+        function redirectToFormularz() {
+            var selectedOption = document.getElementById("pionowe-options").value || document.getElementById("poziome-options").value;
+            var url = '@Url.Action("FormularzKontaktowy", "Formularz")' + '?kolor=' + document.getElementById("kolor").value + '&opcjePionowe=' + document.getElementById("pionowe-options").value + '&opcjePoziome=' + document.getElementById("poziome-options").value;
+            window.location.href = url;
         }
 
         function redirectToSpecification() {
