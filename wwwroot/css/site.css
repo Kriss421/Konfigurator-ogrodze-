@@ -29,18 +29,21 @@ nav {
     background-color: #28a745;
     padding: 2px;
     border-radius:6px;
+    font-size: 25px;
  
 }
 
     nav a {
         color: #fff;
-        padding: 75px;
-        margin-left: 150px;
-    }
+        padding: 5px;
+   margin-left: 150px;
         }
 
         nav a:hover {
-            background-color: brown;
+            background-color: forestgreen;
+            transition-duration: 0.6s;
+            border-radius: 10px;
+            color: white;
         }
 
 .image-container {
