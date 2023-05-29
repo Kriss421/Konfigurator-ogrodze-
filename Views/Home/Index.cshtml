@@ -73,7 +73,7 @@
                     document.getElementById("pionowe-options").selectedIndex = 0;
                     additionalOptionsContainerPionowe.style.display = "block";
                     additionalOptionsContainerPoziome.style.display = "none";
-                    grotOptionsContainer.style.display = "none";
+                    showGrotOptions();
                 } else if (typSelect.value === "poziome") {
                     document.getElementById("poziome-options").selectedIndex = 0;
                     additionalOptionsContainerPionowe.style.display = "none";
@@ -113,7 +113,7 @@
         <button onclick="redirectToFormularz()">Wyceń ogrodzenie</button>
         </li>
     <li class="flex-item" id="zapisz" type="submit">
-        <button onclick="redirectToSpecification()">Zapisz konfiguracje</button>
+        <button>Zapisz konfiguracje</button>
         </li>
         <li class="flex-item" id="zobacz" type="submit">
             <button onclick="redirectToSpecification()">Zobacz specyfikację wzoru</button>
@@ -174,22 +174,21 @@
     }
 
         /* Aga - dodanie fnkcji do przycisku Specyfikacja */
-        function redirectToSpecification() {
-            var pionoweOptionsSelect = document.getElementById("pionowe-options");
-            var poziomeOptionsSelect = document.getElementById("poziome-options");
-            var selectedOption = "";
+    function redirectToSpecification() {
+        var pionoweOptionsSelect = document.getElementById("pionowe-options");
+        var poziomeOptionsSelect = document.getElementById("poziome-options");
+        var selectedOption = "";
 
         if (pionoweOptionsSelect.style.display !== "none") {
-            selectedOption = pionoweOptionsSelect.value;
+            selectedOption = document.getElementById("pionowe-options").value;
         } else if (poziomeOptionsSelect.style.display !== "none") {
-            selectedOption = poziomeOptionsSelect.value;
+            selectedOption = document.getElementById("poziome-options").value;
         }
 
         if (selectedOption === "") {
             alert("Proszę wybrać wzór przed wyświetleniem specyfikacji.");
             return;
         }
-
 
         switch (selectedOption) {
             case "Agat":
@@ -213,6 +212,7 @@
             default:
                 // Obsłuż domyślny przypadek lub wyświetl komunikat o błędzie
                 break;
-            }
         }
+    }
+
     </script>
