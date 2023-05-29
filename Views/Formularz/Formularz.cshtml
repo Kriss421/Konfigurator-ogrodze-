@@ -77,10 +77,20 @@
 
     <div class="container">
         <div class="form-container">
+            
             <p>Wybrane opcje:</p>
             <p>Kolor: @ViewBag.Kolor</p>
-            <p>Opcje poziome: @ViewBag.OpcjePoziome</p>
-            <p>Opcje pionowe: @ViewBag.OpcjePionowe</p>
+
+            @if (!string.IsNullOrEmpty(ViewBag.OpcjePoziome))
+            {
+                <p>Opcje poziome: @ViewBag.OpcjePoziome</p>
+            }
+
+            @if (!string.IsNullOrEmpty(ViewBag.OpcjePionowe))
+            {
+                <p>Opcje pionowe: @ViewBag.OpcjePionowe</p>
+            }
+
             <label for="imie">Imię:</label>
             <input type="text" id="imie" name="imie" required>
             <label for="nazwisko">Nazwisko:</label>

@@ -144,12 +144,36 @@
             };
         }
 
+        /* Aga - funkcja do przycisku Wyceń */
         function redirectToFormularz() {
-            var selectedOption = document.getElementById("pionowe-options").value || document.getElementById("poziome-options").value;
-            var url = '@Url.Action("FormularzKontaktowy", "Formularz")' + '?kolor=' + document.getElementById("kolor").value + '&opcjePionowe=' + document.getElementById("pionowe-options").value + '&opcjePoziome=' + document.getElementById("poziome-options").value;
-            window.location.href = url;
-        }
+        var typSelect = document.getElementById("typ");
+        var pionoweOptionsSelect = document.getElementById("pionowe-options");
+        var poziomeOptionsSelect = document.getElementById("poziome-options");
+        var kolorSelect = document.getElementById("kolor");
 
+        if (typSelect.value !== "brak" && kolorSelect.value !== "brak") {
+            if ((typSelect.value === "pionowe" && pionoweOptionsSelect.value !== "") ||
+                (typSelect.value === "poziome" && poziomeOptionsSelect.value !== "")) {
+
+                var selectedOption = pionoweOptionsSelect.value || poziomeOptionsSelect.value;
+                var url = '@Url.Action("FormularzKontaktowy", "Formularz")' + '?kolor=' + kolorSelect.value;
+
+                if (typSelect.value === "pionowe") {
+                    url += '&opcjePionowe=' + pionoweOptionsSelect.value;
+                } else if (typSelect.value === "poziome") {
+                    url += '&opcjePoziome=' + poziomeOptionsSelect.value;
+                }
+
+                window.open(url, "_blank");
+            } else {
+                alert("Proszę wybrać opcję dla pionowych lub poziomych ogrodzeń.");
+            }
+        } else {
+            alert("Proszę wybrać typ ogrodzenia oraz kolor.");
+        }
+    }
+
+        /* Aga - dodanie fnkcji do przycisku Specyfikacja */
         function redirectToSpecification() {
             var pionoweOptionsSelect = document.getElementById("pionowe-options");
             var poziomeOptionsSelect = document.getElementById("poziome-options");
