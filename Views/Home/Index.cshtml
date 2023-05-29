@@ -179,34 +179,40 @@
             var poziomeOptionsSelect = document.getElementById("poziome-options");
             var selectedOption = "";
 
-            if (pionoweOptionsSelect.style.display !== "none") {
-                selectedOption = pionoweOptionsSelect.value;
-            } else if (poziomeOptionsSelect.style.display !== "none") {
-                selectedOption = poziomeOptionsSelect.value;
-            }
+        if (pionoweOptionsSelect.style.display !== "none") {
+            selectedOption = pionoweOptionsSelect.value;
+        } else if (poziomeOptionsSelect.style.display !== "none") {
+            selectedOption = poziomeOptionsSelect.value;
+        }
 
-            switch (selectedOption) {
-                case "Agat":
-                    window.location.href = "/Specyfikacja/SpecyfikacjaAgat";
-                    break;
-                case "Opal":
-                    window.location.href = "/Specyfikacja/SpecyfikacjaOpal";
-                    break;
-                case "Kwarc":
-                    window.location.href = "/Specyfikacja/SpecyfikacjaKwarc";
-                    break;
-                case "Trawertyn":
-                    window.location.href = "/Specyfikacja/SpecyfikacjaTrawertyn";
-                    break;
-                case "Beryl":
-                    window.location.href = "/Specyfikacja/SpecyfikacjaBeryl";
-                    break;
-                case "Malachit":
-                    window.location.href = "/Specyfikacja/SpecyfikacjaMalachit";
-                    break;
-                default:
-                    // Handle default case or display an error message
-                    break;
+        if (selectedOption === "") {
+            alert("Proszę wybrać wzór przed wyświetleniem specyfikacji.");
+            return;
+        }
+
+
+        switch (selectedOption) {
+            case "Agat":
+                window.open("/Specyfikacja/SpecyfikacjaAgat", "_blank");
+                break;
+            case "Opal":
+                window.open("/Specyfikacja/SpecyfikacjaOpal", "_blank");
+                break;
+            case "Kwarc":
+                window.open("/Specyfikacja/SpecyfikacjaKwarc", "_blank");
+                break;
+            case "Trawertyn":
+                window.open("/Specyfikacja/SpecyfikacjaTrawertyn", "_blank");
+                break;
+            case "Beryl":
+                window.open("/Specyfikacja/SpecyfikacjaBeryl", "_blank");
+                break;
+            case "Malachit":
+                window.open("/Specyfikacja/SpecyfikacjaMalachit", "_blank");
+                break;
+            default:
+                // Obsłuż domyślny przypadek lub wyświetl komunikat o błędzie
+                break;
             }
         }
     </script>
