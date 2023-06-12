@@ -5,9 +5,9 @@
 <div class="text-center"/>
     <header>
         <nav>
-            <a href=@Url.Action("StronaPomoc", "Pomoc")>Pomoc</a>
-            <a href=@Url.Action("StronaKontakt", "Kontakt")>Kontakt</a>
-            <a href=@Url.Action("Login", "Login")>Zaloguj</a> 
+        <a href=@Url.Action("StronaPomoc", "Pomoc")>Pomoc</a> <!-- Aga - przekierowanie na stronę Pomoc -->
+        <a href=@Url.Action("StronaKontakt", "Kontakt")>Kontakt</a> <!-- Aga - przekierowanie na stronę Kontakt -->
+        <a href=@Url.Action("Login", "Login")>Zaloguj</a> <!-- Aga - przekierowanie na stronę Login -->
         </nav><br>
         <h1 class="display-4">Zaprojektuj swoje ogrodzenie razem z nami!</h1>
     </header>
@@ -102,9 +102,9 @@
         <label for="kolor">Kolor:</label>
         <select id="kolor">
             <option value="brak">-</option>
-            <option value="czarny">RAL 9005 Mat</option>
-            <option value="szary">Antracyt DB</option>
-            <option value="biały">RAL 6005 Mat</option>
+            <option value="Czarny 9005 Mat">RAL 9005 Mat</option>
+            <option value="Antracyt">Antracyt DB</option>
+            <option value="Zielony 6005 Mat">RAL 6005 Mat</option>
         </select><br />
     </div>
     <br />
@@ -174,22 +174,22 @@
         }
     }
 
-        /* Aga - dodanie fnkcji do przycisku Specyfikacja */
-    function redirectToSpecification() {
-        var pionoweOptionsSelect = document.getElementById("pionowe-options");
-        var poziomeOptionsSelect = document.getElementById("poziome-options");
-        var selectedOption = "";
+        /* Aga - dodanie funkcji do przycisku Specyfikacja */
+        function redirectToSpecification() {
+            var pionoweOptionsSelect = document.getElementById("pionowe-options");
+            var poziomeOptionsSelect = document.getElementById("poziome-options");
+            var selectedOption = "";
 
-        if (pionoweOptionsSelect.style.display !== "none") {
-            selectedOption = document.getElementById("pionowe-options").value;
-        } else if (poziomeOptionsSelect.style.display !== "none") {
-            selectedOption = document.getElementById("poziome-options").value;
-        }
+            if (pionoweOptionsSelect.style.display !== "none") {
+                selectedOption = document.getElementById("pionowe-options").value;
+            } else if (poziomeOptionsSelect.style.display !== "none") {
+                selectedOption = document.getElementById("poziome-options").value;
+            }
 
-        if (selectedOption === "") {
-            alert("Proszę wybrać wzór przed wyświetleniem specyfikacji.");
+            if (selectedOption === "") {
+                alert("Proszę wybrać wzór przed wyświetleniem specyfikacji.");
             return;
-        }
+            }
 
         switch (selectedOption) {
             case "Agat":
@@ -211,7 +211,6 @@
                 window.open("/Specyfikacja/SpecyfikacjaMalachit", "_blank");
                 break;
             default:
-                // Obsłuż domyślny przypadek lub wyświetl komunikat o błędzie
                 break;
         }
     }
