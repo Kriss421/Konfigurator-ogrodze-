@@ -175,21 +175,22 @@
     }
 
         /* Aga - dodanie funkcji do przycisku Specyfikacja */
-        function redirectToSpecification() {
-            var pionoweOptionsSelect = document.getElementById("pionowe-options");
-            var poziomeOptionsSelect = document.getElementById("poziome-options");
-            var selectedOption = "";
+    function redirectToSpecification() {
+        var pionoweOptionsSelect = document.getElementById("pionowe-options");
+        var poziomeOptionsSelect = document.getElementById("poziome-options");
+        var typSelect = document.getElementById("typ");
+        var selectedOption = "";
 
-            if (pionoweOptionsSelect.style.display !== "none") {
-                selectedOption = document.getElementById("pionowe-options").value;
-            } else if (poziomeOptionsSelect.style.display !== "none") {
-                selectedOption = document.getElementById("poziome-options").value;
-            }
+        if (typSelect.value === "pionowe") {
+            selectedOption = pionoweOptionsSelect.value;
+        } else if (typSelect.value === "poziome") {
+            selectedOption = poziomeOptionsSelect.value;
+        }
 
-            if (selectedOption === "") {
-                alert("Proszę wybrać wzór przed wyświetleniem specyfikacji.");
+        if (selectedOption === "") {
+            alert("Proszę wybrać wzór przed wyświetleniem specyfikacji.");
             return;
-            }
+        }
 
         switch (selectedOption) {
             case "Agat":
