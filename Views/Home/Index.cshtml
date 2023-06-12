@@ -2,13 +2,13 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center"/>
+<div class="text-center">
     <header>
         <nav>
-        <a href=@Url.Action("StronaPomoc", "Pomoc")>Pomoc</a> <!-- Aga - przekierowanie na stronę Pomoc -->
-        <a href=@Url.Action("StronaKontakt", "Kontakt")>Kontakt</a> <!-- Aga - przekierowanie na stronę Kontakt -->
-        <a href=@Url.Action("Login", "Login")>Zaloguj</a> <!-- Aga - przekierowanie na stronę Login -->
-        </nav><br>
+            <a href="@Url.Action("StronaPomoc", "Pomoc")">Pomoc</a> <!-- Aga - przekierowanie na stronę Pomoc -->
+            <a href="@Url.Action("StronaKontakt", "Kontakt")">Kontakt</a> <!-- Aga - przekierowanie na stronę Kontakt -->
+            <a href="@Url.Action("Login", "Login")">Zaloguj</a> <!-- Aga - przekierowanie na stronę Login -->
+        </nav><br />
         <h1 class="display-4">Zaprojektuj swoje ogrodzenie razem z nami!</h1>
     </header>
     <center>
@@ -20,7 +20,7 @@
     <p>Wybierz wzór gotowego domu:</p>
 
     <select id="gotowy-dom" onchange="showSelectedImage()">
-        <option>Wybierz</option>"
+        <option>Wybierz</option>
         <option value="../WidokDomu2.jpg">Wzór 1</option>
         <option value="../WidokDomu3.jpg">Wzór 2</option>
         <option value="../WidokDomu4.jpg">Wzór 3</option>
@@ -111,15 +111,14 @@
 
     <ul class="flex-container">
         <li class="flex-item" id="wycena" type="submit">
-        <button onclick="redirectToFormularz()">Wyceń ogrodzenie</button>
+            <button onclick="redirectToFormularz()">Wyceń ogrodzenie</button>
         </li>
-    <li class="flex-item" id="zapisz" type="submit">
-        <button>Zapisz konfiguracje</button>
+        <li class="flex-item" id="zapisz" type="submit">
+            <button id="zapiszButton" onclick="redirectToPdf()">Zapisz konfigurację</button>
         </li>
         <li class="flex-item" id="zobacz" type="submit">
             <button onclick="redirectToSpecification()">Zobacz specyfikację wzoru</button>
         </li>
-
     </ul>
 
     <hr>
@@ -131,6 +130,10 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <!-- Aga - biblioteki do generowania pdf -->
+    <script src="~/lib/jspdf.es.js"></script>
+    <script src="~/js/html2pdf.bundle.min.js"></script>
+
 
     <script>
         function showSelectedImage() {
@@ -138,82 +141,96 @@
             var selectedValue = selectElement.value;
             var selectedImageContainer = document.querySelector(".image-container img");
 
-            selectedImageContainer.src = "~/" + selectedValue;
+            selectedImageContainer.src = selectedValue;
             selectedImageContainer.alt = "Wybrany dom";
-            window.onload = function () {
-                showSelectedImage();
-            };
         }
 
         /* Aga - funkcja do przycisku Wyceń */
+
         function redirectToFormularz() {
-        var typSelect = document.getElementById("typ");
-        var pionoweOptionsSelect = document.getElementById("pionowe-options");
-        var poziomeOptionsSelect = document.getElementById("poziome-options");
-        var kolorSelect = document.getElementById("kolor");
+            var typSelect = document.getElementById("typ");
+            var pionoweOptionsSelect = document.getElementById("pionowe-options");
+            var poziomeOptionsSelect = document.getElementById("poziome-options");
+            var kolorSelect = document.getElementById("kolor");
 
-        if (typSelect.value !== "brak" && kolorSelect.value !== "brak") {
-            if ((typSelect.value === "pionowe" && pionoweOptionsSelect.value !== "") ||
-                (typSelect.value === "poziome" && poziomeOptionsSelect.value !== "")) {
+            if (typSelect.value !== "brak" && kolorSelect.value !== "brak") {
+                if ((typSelect.value === "pionowe" && pionoweOptionsSelect.value !== "") ||
+                    (typSelect.value === "poziome" && poziomeOptionsSelect.value !== "")) {
 
-                var selectedOption = pionoweOptionsSelect.value || poziomeOptionsSelect.value;
-                var url = '@Url.Action("FormularzKontaktowy", "Formularz")' + '?kolor=' + kolorSelect.value;
+                    var selectedOption = pionoweOptionsSelect.value || poziomeOptionsSelect.value;
+                    var url = '@Url.Action("FormularzKontaktowy", "Formularz")' + '?kolor=' + kolorSelect.value;
 
-                if (typSelect.value === "pionowe") {
-                    url += '&opcjePionowe=' + pionoweOptionsSelect.value;
-                } else if (typSelect.value === "poziome") {
-                    url += '&opcjePoziome=' + poziomeOptionsSelect.value;
+                    if (typSelect.value === "pionowe") {
+                        url += '&opcjePionowe=' + pionoweOptionsSelect.value;
+                    } else if (typSelect.value === "poziome") {
+                        url += '&opcjePoziome=' + poziomeOptionsSelect.value;
+                    }
+
+                    window.open(url, "_blank");
+                } else {
+                    alert("Proszę wybrać opcję dla pionowych lub poziomych ogrodzeń.");
                 }
-
-                window.open(url, "_blank");
             } else {
-                alert("Proszę wybrać opcję dla pionowych lub poziomych ogrodzeń.");
+                alert("Proszę wybrać typ ogrodzenia oraz kolor.");
             }
-        } else {
-            alert("Proszę wybrać typ ogrodzenia oraz kolor.");
         }
-    }
+
+        /* Aga - dodanie funkcji do przycisku Pdf */ 
+
+        function redirectToPdf() {
+            var element = document.documentElement;
+            var options = {
+                margin: 10,
+                filename: 'konfiguracja.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+
+            html2pdf().set(options).from(element).save();
+        }
 
         /* Aga - dodanie funkcji do przycisku Specyfikacja */
-    function redirectToSpecification() {
-        var pionoweOptionsSelect = document.getElementById("pionowe-options");
-        var poziomeOptionsSelect = document.getElementById("poziome-options");
-        var typSelect = document.getElementById("typ");
-        var selectedOption = "";
 
-        if (typSelect.value === "pionowe") {
-            selectedOption = pionoweOptionsSelect.value;
-        } else if (typSelect.value === "poziome") {
-            selectedOption = poziomeOptionsSelect.value;
+        function redirectToSpecification() {
+            var pionoweOptionsSelect = document.getElementById("pionowe-options");
+            var poziomeOptionsSelect = document.getElementById("poziome-options");
+            var typSelect = document.getElementById("typ");
+            var selectedOption = "";
+
+            if (typSelect.value === "pionowe") {
+                selectedOption = pionoweOptionsSelect.value;
+            } else if (typSelect.value === "poziome") {
+                selectedOption = poziomeOptionsSelect.value;
+            }
+
+            if (selectedOption === "") {
+                alert("Proszę wybrać wzór przed wyświetleniem specyfikacji.");
+                return;
+            }
+
+            switch (selectedOption) {
+                case "Agat":
+                    window.open("/Specyfikacja/SpecyfikacjaAgat", "_blank");
+                    break;
+                case "Opal":
+                    window.open("/Specyfikacja/SpecyfikacjaOpal", "_blank");
+                    break;
+                case "Kwarc":
+                    window.open("/Specyfikacja/SpecyfikacjaKwarc", "_blank");
+                    break;
+                case "Trawertyn":
+                    window.open("/Specyfikacja/SpecyfikacjaTrawertyn", "_blank");
+                    break;
+                case "Beryl":
+                    window.open("/Specyfikacja/SpecyfikacjaBeryl", "_blank");
+                    break;
+                case "Malachit":
+                    window.open("/Specyfikacja/SpecyfikacjaMalachit", "_blank");
+                    break;
+                default:
+                    break;
+            }
         }
-
-        if (selectedOption === "") {
-            alert("Proszę wybrać wzór przed wyświetleniem specyfikacji.");
-            return;
-        }
-
-        switch (selectedOption) {
-            case "Agat":
-                window.open("/Specyfikacja/SpecyfikacjaAgat", "_blank");
-                break;
-            case "Opal":
-                window.open("/Specyfikacja/SpecyfikacjaOpal", "_blank");
-                break;
-            case "Kwarc":
-                window.open("/Specyfikacja/SpecyfikacjaKwarc", "_blank");
-                break;
-            case "Trawertyn":
-                window.open("/Specyfikacja/SpecyfikacjaTrawertyn", "_blank");
-                break;
-            case "Beryl":
-                window.open("/Specyfikacja/SpecyfikacjaBeryl", "_blank");
-                break;
-            case "Malachit":
-                window.open("/Specyfikacja/SpecyfikacjaMalachit", "_blank");
-                break;
-            default:
-                break;
-        }
-    }
-
     </script>
+</div>
