@@ -4,73 +4,86 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Formularz kontaktowy</title>
+    <title>Specyfikacja Beryl</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <style>
 
         body {
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
             margin: 0;
             background-color: peachpuff;
+            font-family: 'Arial', sans-serif;
         }
 
         h1 {
             text-align: center;
-        }
-        .form-container {
-            max-width: 500px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 5px 4px rgba(0, 0, 0, 0.1);
-            border-radius: 20px;
+            text-shadow: 8px 5px 9px rgba(0, 0, 0, 0.5);
+            font-size: 100px;
         }
 
-            .form-container label {
-                display: block;
-                margin-bottom: 5px;
-            }
-
-            .form-container input[type="text"],
-            .form-container input[type="tel"],
-            .form-container input[type="file"] {
-                width: 100%;
-                padding: 5px;
-                margin-bottom: 10px;
-                transition: border-color 0.5s;
-            }
-
-                .form-container input[type="text"]:hover,
-                .form-container input[type="tel"]:hover,
-                .form-container input[type="file"]:hover {
-                    border-color: #4CAF50;
-                }
-
-        .submit-container {
-            text-align: center;
+        .image-container {
+            display: flex;
+            flex-direction: column;
+            max-width: 100%;
+            overflow-x: auto; /* Dopuszczalne przewijanie poziome */
             margin-top: 20px;
         }
 
-            .submit-container button {
-                padding: 10px 20px;
-                background-color: #4CAF50;
-                color: #fff;
-                border: none;
-                cursor: pointer;
+            .image-container img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 20px;
+                box-shadow: 8px 5px 9px rgba(0, 0, 0, 0.5);
+                margin: 30px;
             }
 
-                .submit-container button:hover {
-                    background-color: #45a049;
-                }
+        p {
+            font-size: 2em; /* wielkość tekstu proporcjonalnie do obrazków */
+            text-align: justify;
+        }
+
+        ul {
+            margin-left: 20px;
+            font-size: 2em;
+        }
+
     </style>
 </head>
 
 <body>
-    <h1>BERYL</h1>
+    <nav>
+        <a href=@Url.Action("StronaHome", "Home")>Powrót na stronę główną</a>
+    </nav>
+    <br />
+    <br />
+    <h1 id="agat">WZÓR BERYL</h1>
+    <br />
+    <div class="image-container">
+        <img src="~/realizacja_BERYL1.jpg" />
+        <img src="~/realizacja_BERYL2.jpg" /><br /><br />
+    </div>
+    <br />
+    <br />
+    <p>
+        <b>SPECYFIKACJA BERYL</b><br /><br />
+
+        Łączy lekkość z solidną konstrukcją. Nieprzezierny wzór został stworzony na potrzeby Klientów, którzy cenią sobie prywatność, a jednocześnie chcą podkreślić walory swojej posesji.
+        Ogrodzenia frontowe BERYL to solidne ogrodzenie na lata, które cechuje bogate wzornictwo. Dodatkowym atutem ogrodzenia frontowego BERYL jest zabezpieczenie antykorozyjne, dzięki czemu nie wymagają one żadnych zabiegów konserwacyjnych.
+
+
+        Dane techniczne:
+        <ul>
+            <li>Elementy poziome z blachy h=100mm</li>
+
+            <li>System mocowania uchwyt uniwersalny</li>
+
+            <br />
+            Wysokość i szerokość przygotowywana dokładnie pod wymiary klienta.
+        </ul>
+    </p>
 
 </body>
 

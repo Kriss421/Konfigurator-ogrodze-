@@ -48,6 +48,10 @@ nav {
 
 .image-container {
     position: relative;
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+
 }
 
     .image-container::after {
@@ -57,6 +61,7 @@ nav {
         bottom: 0;
         left: 0;
         right: 0;
+        border-radius: 20px;
     }
 
 .flex-container {
