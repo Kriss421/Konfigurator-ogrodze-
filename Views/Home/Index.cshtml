@@ -14,11 +14,12 @@
     <center>
         <div class="image-container">
             <img src="~/dom1.jpg" alt="Przykładowy ogródek" /><br /><br />
+            <img class="ogrodzenie" src="~/Ogrodzenie KWARC 6005.png"/>
             <h1 class="image-text">Konfigurator ogrodzeń</h1><br /><br /><br />
         </div>
     </center>
     <p>Wybierz wzór gotowego domu:</p>
-
+    
     <select id="gotowy-dom" onchange="showSelectedImage()">
         <option>Wybierz</option>
         <option value="../WidokDomu2.jpg">Wzór 1</option>
@@ -137,6 +138,38 @@
 
 
     <script>
+        function showFenceImageListener() {
+            const selects = document.querySelectorAll('select');
+
+            selects.forEach(el => el.addEventListener('click', event => {
+                var ogrodzenieObrazek = document.getElementsByClassName("ogrodzenie")[0];
+
+                var fenceImageName = getFenceImageName();
+
+                if (fenceImageName) {
+                    ogrodzenieObrazek.src = fenceImageName;
+                    ogrodzenieObrazek.style.display = "block";
+                }
+            }));
+        }
+        showFenceImageListener();
+
+        function getFenceImageName() {
+            var gotowyDom = document.getElementById("gotowy-dom");
+            var typ = document.getElementById("typ");
+            var pionoweOptions = document.getElementById("pionowe-options");
+            var poziomeOptions = document.getElementById("poziome-options");
+            var kolor = document.getElementById("kolor");
+
+            if (gotowyDom.value !== 'Wybierz' && typ.value !== "brak" && (pionoweOptions.value !== "" || poziomeOptions.value !== "") && kolor.value !== "brak") {
+                var dodatkowe = typ.value === "pionowe" ? pionoweOptions.value : poziomeOptions.value;
+
+                return `Ogrodzenie ${dodatkowe} ${kolor.value}.png`;
+            } else {
+                return '';
+            }
+        }
+
         function showSelectedImage() {
             var selectElement = document.getElementById("gotowy-dom");
             var selectedValue = selectElement.value;

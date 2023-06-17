@@ -106,6 +106,7 @@ nav {
     max-width: 100%;
     height: auto;
     border-radius: 20px;
+    overflow: hidden;
 }
 
     .image-container::after {
@@ -194,5 +195,13 @@ img[src$=".jpg"] {
     object-fit: cover;
     border-radius: 20px;
     box-shadow: 0 10px 100px rgba(255, 218, 185, 0.1);
+}
+
+.ogrodzenie {
+    display: none;
+    width: 150%;
+    position: absolute;
+    bottom: -35px;
+    left: -270px;
 }
 
