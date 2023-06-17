@@ -1,15 +1,24 @@
-
 body {
     color: #333;
     font-family: Arial, sans-serif;
     background-color: peachpuff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
+
 
 h1, h2 {
     color: #333;
 }
+
     h1.display-4 {
         text-shadow: 8px 5px 9px rgba(0, 0, 0, 0.5);
+
+
     }
 
 a {
@@ -18,32 +27,78 @@ a {
 }
 
     a:hover {
-        color: #0056b3;
+        color: black;
+        border-radius: 5px;
+
+        transition: opacity 1s ease;
     }
 
 .text-success {
     color: #28a745;
 }
+.image-text {
+    font-size: 60px;
+    font-weight: bold;
+    color: transparent;
+    background: linear-gradient(45deg, #00ff00, #00cc00);
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: glowing 2s linear infinite;
+    text-shadow: 0 0 5px #00cc00;
+}
+
+@keyframes glowing {
+    0% {
+        text-shadow: 0 0 30px #00cc00;
+    }
+
+    50% {
+        text-shadow: 0 0 10px #005B1F;
+    }
+
+    100% {
+        text-shadow: 0 0 20px #00cc00;
+    }
+}
+
 
 nav {
+    position: relative;
     background-color: #28a745;
-    padding: 2px;
-    border-radius:6px;
+    padding: 10px;
+    border-radius: 6px;
     font-size: 25px;
-    
- }
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 
+    nav::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+    }
+
+    nav:hover::before {
+        opacity: 1;
+    }
     nav a {
         color: #fff;
-        padding: 5px;
-   margin-left: 150px;
-        }
+        padding: 10px 20px;
+        flex: 1;
+        text-align: center;
+        transition: background-color 0.3s ease;
+    }
 
         nav a:hover {
-            background-color: forestgreen;
-            transition-duration: 0.6s;
-            border-radius: 10px;
-            color: white;
+            background-color: #005b1f;
         }
 
 .image-container {
@@ -51,7 +106,6 @@ nav {
     max-width: 100%;
     height: auto;
     border-radius: 20px;
-
 }
 
     .image-container::after {
@@ -66,12 +120,12 @@ nav {
 
 .flex-container {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    padding: 10;
+    padding: 10px;
 }
 
-.flex-item, button {
+.flex-item,
+button {
     border: none;
     background-color: #7dbd6e;
     padding: 16px 32px;
@@ -83,22 +137,62 @@ nav {
     border-radius: 20px;
 }
 
-button:hover {
+    button:hover {
         background-color: forestgreen;
         transition-duration: 0.6s;
         border-radius: 20px;
-        color:white;
+        color: white;
     }
-#typ, #pionowe-options, #poziome-options, #groty, #kolor, #gotowy-dom {
+
+
+#typ,
+#pionowe-options,
+#poziome-options,
+#groty,
+#kolor,
+#gotowy-dom {
     background-color: #7dbd6e;
     border-radius: 5px;
     margin: 7px;
-    margin-left: auto;
-    margin-right: auto;
     padding: 10px;
+    flex: 1;
+    transition: background-color 0.3s ease;
 }
- #gotowy-dom:hover {
+
+    #typ:hover,
+    #pionowe-options:hover,
+    #poziome-options:hover,
+    #groty:hover,
+    #kolor:hover,
+    #gotowy-dom:hover {
+        background-color: #005b1f;
+        animation: shimmer 2s infinite;
+    }
+
+@keyframes shimmer {
+    0% {
+        background-color: #005b1f;
+    }
+
+    50% {
+        background-color: #005b1f;
+    }
+
+    100% {
+        background-color: #7dbd6e;
+    }
+}
+
+    #gotowy-dom:hover {
         transition-duration: 0.6s;
         border-radius: 10px;
         color: white;
     }
+img[src$=".jpg"] {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 10px 100px rgba(255, 218, 185, 0.1);
+}
+
