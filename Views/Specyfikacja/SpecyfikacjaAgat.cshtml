@@ -22,6 +22,7 @@
             text-align: center;
             text-shadow: 8px 5px 9px rgba(0, 0, 0, 0.5);
             font-size: 100px;
+            margin-top: 50px;
         }
 
         .image-container {
@@ -40,10 +41,20 @@
                 object-fit: contain;
             }
 
+
         p {
             font-size: 2em;
             text-align: justify;
         }
+        a{
+            z-index: 999; /* Dodajemy z-index, aby pasek nawigacji był na wierzchu */
+            transition: top 0.3s ease; /* Dodajemy przejście animacji dla 'top' */
+        }
+
+        a.sticky {
+            top: -50px; /* Przesuwamy pasek nawigacji na górę, aby go ukryć */
+        }
+
 
         ul {
             margin-left: 20px;
@@ -62,9 +73,9 @@
 <body>
     <nav>
         <a href=@Url.Action("StronaHome", "Home")>Powrót na stronę główną</a>
-    </nav><br /><br />
+    </nav><br /><br /><br />
     <h1 id="agat">WZÓR AGAT</h1>
-    <br />
+    <br /><br /><br />
     <div class="image-container">
         <img src="~/realizacja_agat1.jpg" />
         <img src="~/realizacja_AGAT2.jpg" /><br /><br />

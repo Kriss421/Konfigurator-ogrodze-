@@ -17,6 +17,7 @@ h1, h2 {
 
     h1.display-4 {
         text-shadow: 8px 5px 9px rgba(0, 0, 0, 0.5);
+        margin-top: 50px;
 
 
     }
@@ -62,16 +63,25 @@ a {
 }
 
 
+
 nav {
-    position: relative;
+    position: fixed;
     background-color: #28a745;
     padding: 10px;
     border-radius: 6px;
     font-size: 25px;
     width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999; 
+    transition: top 0.7s ease;
     display: flex;
-    justify-content: center;
 }
+
+    nav.sticky {
+        top: -75px; 
+    }
+
 
     nav::before {
         content: '';
@@ -203,5 +213,12 @@ img[src$=".jpg"] {
     position: absolute;
     bottom: -35px;
     left: -270px;
+}
+#beryl {
+    display: none;
+    width: 150%;
+    position: absolute;
+    bottom: -35px;
+    left: -300x;
 }
 

@@ -100,6 +100,13 @@
             }
 
         </script>
+        <script>
+        window.addEventListener("scroll", function() {
+        var nav = document.querySelector("nav");
+        nav.classList.toggle("sticky", window.scrollY > 0);
+        });
+        </script>
+
 
         <label for="kolor">Kolor:</label>
         <select id="kolor">
@@ -138,6 +145,7 @@
 
 
     <script>
+        // Funkcja animacji
         function showFenceImageListener() {
             const selects = document.querySelectorAll('select');
 
@@ -178,6 +186,7 @@
             selectedImageContainer.src = selectedValue;
             selectedImageContainer.alt = "Wybrany dom";
         }
+        // Funkcja animacji
 
         /* Aga - funkcja do przycisku Wyceń */
 
