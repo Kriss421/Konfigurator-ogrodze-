@@ -15,17 +15,48 @@
         <div class="image-container">
             <img src="~/dom1.jpg" alt="Przykładowy ogródek" /><br /><br />
             <img class="ogrodzenie" src="~/Ogrodzenie KWARC 6005.png"/>
-            <h1 class="image-text">Konfigurator ogrodzeń</h1><br /><br /><br />
+
         </div>
     </center>
-    <p>Wybierz wzór gotowego domu:</p>
+    <h1 class="image-text">Konfigurator ogrodzeń</h1>
+    <p><b>Wybierz wzór gotowego domu:</b></p>
     
     <select id="gotowy-dom" onchange="showSelectedImage()">
         <option>Wybierz</option>
         <option value="../WidokDomu2.jpg">Wzór 1</option>
         <option value="../WidokDomu3.jpg">Wzór 2</option>
         <option value="../WidokDomu4.jpg">Wzór 3</option>
-    </select>
+    </select><br /><br />
+
+    <div id="wczytane-zdjecie-container"></div>
+
+    <label for="wlasne-zdjecie"><b>Dodaj własne zdjęcie do wizualizacji:<b></label><br /><br />
+    <input type="file" id="wlasne-zdjecie" accept="image/*"><br />
+    <script>
+        // Funkcja obsługująca wybór własnego zdjęcia
+        document.getElementById("wlasne-zdjecie").addEventListener("change", function (event) {
+            var input = event.target;
+            var reader = new FileReader();
+
+            reader.onload = function () {
+                var selectedImage = document.createElement("img");
+                selectedImage.src = reader.result;
+                selectedImage.alt = "Wybrane własne zdjęcie";
+
+                var imageContainer = document.getElementById("wczytane-zdjecie-container");
+                imageContainer.innerHTML = "";
+                imageContainer.appendChild(selectedImage);
+
+                var gotowyDomImage = document.getElementById("gotowy-dom");
+                var selectedImageContainer = document.querySelector(".image-container img");
+                selectedImageContainer.src = gotowyDomImage.value;
+                selectedImageContainer.alt = "Wybrany dom";
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        });
+    </script>
+
     <div id="selected-image-container"></div><br /><br /><br />
 
     <div class="options">

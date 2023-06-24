@@ -61,6 +61,10 @@ a {
         text-shadow: 0 0 20px #00cc00;
     }
 }
+p {
+    margin-top: 100px;
+    margin-bottom: 1rem;
+}
 
 
 
@@ -211,14 +215,20 @@ img[src$=".jpg"] {
     display: none;
     width: 150%;
     position: absolute;
-    bottom: -35px;
-    left: -270px;
+    bottom: -190px;
+    left: -275px;
 }
 #beryl {
     display: none;
     width: 150%;
     position: absolute;
-    bottom: -35px;
-    left: -300x;
+    bottom: -55px;
+    left: -10px;
+}
+#wczytane-zdjecie-container {
+    position: absolute;
+    left: 395px;
+    bottom: 20px;
+
 }
 
