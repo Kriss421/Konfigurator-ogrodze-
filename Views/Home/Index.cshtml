@@ -132,6 +132,7 @@
 
         </script>
         <script>
+            // Znikający pasek nawigacji //
         window.addEventListener("scroll", function() {
         var nav = document.querySelector("nav");
         nav.classList.toggle("sticky", window.scrollY > 0);
@@ -199,9 +200,13 @@
             var pionoweOptions = document.getElementById("pionowe-options");
             var poziomeOptions = document.getElementById("poziome-options");
             var kolor = document.getElementById("kolor");
+            var grot = document.getElementById("groty");
 
             if (gotowyDom.value !== 'Wybierz' && typ.value !== "brak" && (pionoweOptions.value !== "" || poziomeOptions.value !== "") && kolor.value !== "brak") {
                 var dodatkowe = typ.value === "pionowe" ? pionoweOptions.value : poziomeOptions.value;
+                if (dodatkowe === "P1") {
+                    dodatkowe += " grotów";
+                }
 
                 return `Ogrodzenie ${dodatkowe} ${kolor.value}.png`;
             } else {
