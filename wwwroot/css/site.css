@@ -62,7 +62,7 @@ a {
     }
 }
 p {
-    margin-top: 100px;
+    margin-top: 10px;
     margin-bottom: 1rem;
 }
 
@@ -228,7 +228,6 @@ img[src$=".jpg"] {
 #wczytane-zdjecie-container {
     position: absolute;
     left: 395px;
-    bottom: 20px;
-
+    bottom: -83px
 }
 

@@ -28,10 +28,6 @@ nav a{
         margin-bottom: 20px;
     }
 
-.contact-info {
-    margin-bottom: 10px;
-}
-
     .contact-info h3 {
         margin: 0;
     }
@@ -49,8 +45,8 @@ label {
 input[type="email"],
 textarea {
     width: 100%;
-    padding: 5px;
-    margin-bottom: 10px;
+    padding: 50px;
+    margin-bottom: 100px;
 }
 
 button[type="submit"] {
